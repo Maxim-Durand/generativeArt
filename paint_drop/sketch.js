@@ -1,4 +1,3 @@
-
 let time = 0.05
 
 function setup() {
@@ -39,7 +38,12 @@ function angle(x1, y1, x2, y2) {
 
 function draw() {
     background(200)
-    let paintDrop = new PaintDrop()
+    translate(width * 0.5, height * 0.5);
+    colors = []
+    let colorSelector = new ColorSelector(colors)
+    colorSelector.onlyOneColor("#FF5C58")
+    let paintDrop = new PaintDrop(0, 0, width / 4, 12, 6, 50, 10)
+    paintDrop.setColorSelector(colorSelector)
     paintDrop.drawPaintDrop()
     noLoop()
 }

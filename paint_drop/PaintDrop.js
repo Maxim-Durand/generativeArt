@@ -1,6 +1,32 @@
 class PaintDrop {
-    all_points = []
+    x
+    y
+    all_points
+    radius
+    polygonNumber
+    recursiveLoopNumber
+    paintLayers
+    layersOpacity
+    layersColors
 
+    _colorSelector
+
+    constructor(x, y, radius, polygonNumber, recursiveLoopNumber, paintLayers, layersOpacity, layersColors) {
+        this.x = x;
+        this.y = y;
+        this.all_points = [];
+        this.radius = radius;
+        this.polygonNumber = polygonNumber;
+        this.recursiveLoopNumber = recursiveLoopNumber;
+        this.paintLayers = paintLayers;
+        this.layersOpacity = layersOpacity;
+        this.layersColors = layersColors
+    }
+
+
+    setColorSelector(value) {
+        this._colorSelector = value;
+    }
 
     absolute(num) {
         return num < 0 ? -num : num
@@ -14,7 +40,7 @@ class PaintDrop {
 
         let x = x1 - x2
         let y = y1 - y2
-        let amplitude = this.absolute(randomGaussian(width * (2*lvl)/100, 1))
+        let amplitude = this.absolute(randomGaussian(width * (2 * lvl) / 100, 1))
 
         let randomAngle = randomGaussian(PI / 2, 1)
 
@@ -24,7 +50,7 @@ class PaintDrop {
         let normalVector = createVector(vX, vY)
         normalVector.setMag(amplitude)
 
-        return [pX+normalVector.x, pY+normalVector.y]
+        return [pX + normalVector.x, pY + normalVector.y]
     }
 
     recursivelyEdge(p1, p2, level) {
@@ -47,6 +73,8 @@ class PaintDrop {
 
     drawRecursivePolygon(x, y, radius, polygonNpoints, borderLoopNumber, addedVertex) {
         let angle = TWO_PI / polygonNpoints;
+
+        // Create default polygon
         for (let a = 0; a < TWO_PI; a += angle) {
             let sx = x + cos(a) * radius;
             let sy = y + sin(a) * radius;
@@ -56,6 +84,8 @@ class PaintDrop {
             } // New point
             this.all_points.push(nP)
         }
+
+        // Add vertex on each side recursively
         let first_points = this.all_points.slice()
         for (let [idx, p] of first_points.entries()) {
             if (idx < first_points.length - 1) {
@@ -66,6 +96,7 @@ class PaintDrop {
             }
         }
 
+        // Create figure
         beginShape();
         for (let p of this.all_points) {
             if (!addedVertex) {
@@ -84,16 +115,14 @@ class PaintDrop {
         endShape(CLOSE);
     }
 
-    drawPaintDrop(){
-        let NLayer = 50
-        let opacity = 10
-        for(let i = 0 ;i < NLayer ; i++){
+    drawPaintDrop() {
+        for (let i = 0; i < this.paintLayers; i++) {
             push();
             noStroke()
-            fill(255, 0, 50,opacity)
-            translate(width * 0.5, height * 0.5);
+            let currentColor = this._colorSelector.getCurrentColor()
+            fill(red(currentColor), green(currentColor), blue(currentColor), this.layersOpacity)
             this.all_points = []
-            this.drawRecursivePolygon(0, 0, width / 4, 12, 6,true);
+            this.drawRecursivePolygon(this.x, this.y, this.radius, this.polygonNumber, this.recursiveLoopNumber, true);
             pop();
         }
     }
