@@ -2,6 +2,7 @@
   "name": "generativeArt",
   "projects": [
     "paint_patterns",
-    "joydivision"
+    "joydivision",
+    "paint_drop"
   ]
 }
