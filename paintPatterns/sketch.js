@@ -1,22 +1,23 @@
 let colors = ["#eecf6d","#d5ac4e","#8b6220","#720e07","#45050c"]
 let time = 0.05
 function setup() {
-    createCanvas(windowWidth, windowHeight,WEBGL);
-    //pixelDensity(1);
-    smooth()
+	console.log("paint patterns")
+	createCanvas(windowWidth, windowHeight,WEBGL);
+	//pixelDensity(1);
+	smooth()
 	frameRate(1)
-    background(0)
+	background(0)
 }
 
 
 function draw() {
+	background(0)
 	time += 0.05
-    const centerPoint = {
-        y: windowHeight / 2,
-        x: windowWidth / 2
-    }
+	const centerPoint = {
+		y: windowHeight / 2,
+		x: windowWidth / 2
+	}
 
-    background(0)
 	for(let i =0; i < 3; i++){
 		time += 0.5
 		let c = random(colors)
@@ -38,9 +39,7 @@ function draw() {
 	strokeWeight(2)
 	stroke(0)
 	smooth()
-	beginShape()
 	circle(0,0,windowWidth/2 -500)
-	endShape()
 	pop()
 
 	//noLoop()
@@ -48,9 +47,9 @@ function draw() {
 }
 
 function mousePressed() {
-    background(0)
+	background(0)
 }
 
 function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
+	resizeCanvas(windowWidth, windowHeight);
 }

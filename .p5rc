@@ -1,9 +1,13 @@
 {
   "name": "generativeArt",
   "projects": [
-    "paint_patterns",
     "joydivision",
     "paint_drop",
-    "orbitals"
+    "orbitals",
+    "flow-field",
+    "deJongIFS",
+    "generative-impressionism",
+    "chaos-attractors",
+    "paintPatterns"
   ]
 }
