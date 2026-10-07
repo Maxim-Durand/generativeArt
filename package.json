@@ -1,0 +1,12 @@
+{
+  "name": "generative-art",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:manifest": "node scripts/build.mjs --no-shots"
+  },
+  "devDependencies": {
+    "puppeteer": "^23.0.0"
+  }
+}

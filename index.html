@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Generative Art</title>
+  <link rel="stylesheet" href="site/style.css">
+</head>
 <body>
-
-<h1>All my projects:</h1>
-<p><a href='https://maxim-durand.github.io/generativeArt/chaos-attractors/index.html'>chaos-attractors</a></p>
-<p><a href='https://maxim-durand.github.io/generativeArt/deJongIFS/index.html'>deJongIFS</a></p>
-<p><a href='https://maxim-durand.github.io/generativeArt/flow-field/index.html'>flow-field</a></p>
-<p><a href='https://maxim-durand.github.io/generativeArt/generative-impressionism/index.html'>generative-impressionism</a></p>
-<p><a href='https://maxim-durand.github.io/generativeArt/joydivision/index.html'>joydivision</a></p>
-<p><a href='https://maxim-durand.github.io/generativeArt/orbitals/index.html'>orbitals</a></p>
-<p><a href='https://maxim-durand.github.io/generativeArt/paint_drop/index.html'>paint_drop</a></p>
-<p><a href='https://maxim-durand.github.io/generativeArt/paintPatterns/index.html'>paintPatterns</a></p>
+  <div class="backdrop" id="backdrop"></div>
+  <header class="head">
+    <h1>Generative Art</h1>
+    <p>Drag, scroll or use arrow keys. Click to open.</p>
+  </header>
+  <main class="stage" id="stage" aria-roledescription="carousel"></main>
+  <h2 class="caption" id="caption" aria-live="polite"></h2>
+  <nav class="dots" id="dots" aria-label="Projects"></nav>
+  <noscript><p class="noscript">Enable JavaScript to browse the projects.</p></noscript>
+  <script type="module" src="site/carousel.js"></script>
 </body>
 </html>

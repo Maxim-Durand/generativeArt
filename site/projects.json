@@ -1,0 +1,42 @@
+[
+  {
+    "name": "chaos-attractors",
+    "title": "Chaos attractors",
+    "thumb": "thumbs/chaos-attractors.png"
+  },
+  {
+    "name": "deJongIFS",
+    "title": "De Jong IFS",
+    "thumb": "thumbs/deJongIFS.png"
+  },
+  {
+    "name": "flow-field",
+    "title": "Flow field",
+    "thumb": "thumbs/flow-field.png"
+  },
+  {
+    "name": "generative-impressionism",
+    "title": "Generative impressionism",
+    "thumb": "thumbs/generative-impressionism.png"
+  },
+  {
+    "name": "joydivision",
+    "title": "Joydivision",
+    "thumb": "thumbs/joydivision.png"
+  },
+  {
+    "name": "orbitals",
+    "title": "Orbitals",
+    "thumb": "thumbs/orbitals.png"
+  },
+  {
+    "name": "paint_drop",
+    "title": "Paint drop",
+    "thumb": "thumbs/paint_drop.png"
+  },
+  {
+    "name": "paintPatterns",
+    "title": "Paint Patterns",
+    "thumb": "thumbs/paintPatterns.png"
+  }
+]
