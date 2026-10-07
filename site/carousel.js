@@ -86,9 +86,11 @@ let startPos = 0;
 let moved = 0;
 let lastX = 0;
 let lastT = 0;
+let downCard = null;
 
 stage.addEventListener('pointerdown', (e) => {
   dragging = true;
+  downCard = e.target.closest('.card');
   moved = 0;
   startX = lastX = e.clientX;
   startPos = position;
@@ -122,14 +124,12 @@ stage.addEventListener('pointerup', endDrag);
 stage.addEventListener('pointercancel', endDrag);
 
 stage.addEventListener('click', (e) => {
-  const card = e.target.closest('.card');
-  if (moved > DRAG_THRESHOLD) return e.preventDefault();
-  if (!card) return;
-  const i = cards.indexOf(card);
-  if (i !== shown) {
-    e.preventDefault();
-    goTo(i);
-  }
+  if (e.detail === 0) return;
+  e.preventDefault();
+  if (moved > DRAG_THRESHOLD || !downCard) return;
+  const i = cards.indexOf(downCard);
+  if (i === shown) location.href = downCard.href;
+  else goTo(i);
 });
 
 let wheelLock = 0;
